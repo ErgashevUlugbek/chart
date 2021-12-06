@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { catchError, Observable, retry, throwError } from 'rxjs';
 import { WeatherResponse } from '../models/weather-response.model';
 
 @Injectable({
@@ -12,6 +12,21 @@ export class WeatherApiService {
   constructor(private http: HttpClient) {}
 
   getDataFor7Days(): Observable<WeatherResponse> {
-    return this.http.get<WeatherResponse>(this.url);
+    return this.http
+      .get<WeatherResponse>(this.url)
+      .pipe(retry(1), catchError(this.handleError));
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    let response: string = 'Error: ';
+    if (error.status === 0) {
+      console.error('An error occured: ', error.error);
+    } else {
+      console.error(
+        `Backend returned ${error.status} code, body was `,
+        error.error
+      );
+    }
+    return throwError(() => alert(response + error.statusText));
   }
 }
