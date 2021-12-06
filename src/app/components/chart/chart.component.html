@@ -1,7 +1,9 @@
-<highcharts-chart
-  *ngIf="isHighcharts"
-  [Highcharts]="Highcharts"
-  [constructorType]="'stockChart'"
-  [options]="chartOptions"
->
-</highcharts-chart>
+<div class="wrapper">
+  <highcharts-chart
+    *ngIf="isHighcharts"
+    [Highcharts]="Highcharts"
+    [constructorType]="'stockChart'"
+    [options]="chartOptions"
+  >
+  </highcharts-chart>
+</div>
