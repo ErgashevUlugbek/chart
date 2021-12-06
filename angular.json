@@ -33,7 +33,6 @@
           },
           "configurations": {
             "production": {
-              "preserveSymlinks": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -55,7 +54,6 @@
               "outputHashing": "all"
             },
             "development": {
-              "preserveSymlinks": true,
               "buildOptimizer": false,
               "optimization": false,
               "vendorChunk": true,
