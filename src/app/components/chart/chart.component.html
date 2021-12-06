@@ -1,1 +1,7 @@
-<p>chart works!</p>
+<highcharts-chart
+  *ngIf="isHighcharts"
+  [Highcharts]="Highcharts"
+  [constructorType]="'stockChart'"
+  [options]="chartOptions"
+>
+</highcharts-chart>
