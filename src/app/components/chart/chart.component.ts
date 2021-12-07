@@ -24,7 +24,7 @@ export class ChartComponent implements OnInit {
     },
 
     title: {
-      text: 'Weekly tempreature',
+      text: 'Weekly temperature',
       style: {
         fontSize: '2rem',
         fontWeight: 'bold',
@@ -36,7 +36,7 @@ export class ChartComponent implements OnInit {
       lineWidth: 1,
       tickWidth: 1,
       title: {
-        text: 'Tempreature &#8451;',
+        text: 'Temperature &#8451;',
         style: {
           fontSize: '1rem',
         },
@@ -44,7 +44,11 @@ export class ChartComponent implements OnInit {
     },
 
     tooltip: {
-      valueSuffix: ' &#8451;',
+      formatter: function (): string {
+        return `${new Date(this.x)
+          .toUTCString()
+          .slice(0, -7)} <br> <strong>Temperature: </strong> ${this.y} &#8451;`;
+      },
     },
 
     plotOptions: {
