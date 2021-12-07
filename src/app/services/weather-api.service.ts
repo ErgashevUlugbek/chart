@@ -8,7 +8,7 @@ import { WeatherResponse } from '../models/weather-response.model';
 })
 export class WeatherApiService {
   private url =
-    'https://api.openweathermap.org/data/2.5/onecall?lat=41&lon=69&exclude=minutely,hourly&APPID=53d98d29642ba12c4beeb02c4f566d59';
+    'https://api.openweathermap.org/data/2.5/onecall?lat=41&lon=69&units=metric&exclude=minutely,hourly&APPID=53d98d29642ba12c4beeb02c4f566d59';
   constructor(private http: HttpClient) {}
 
   getDataFor7Days(): Observable<WeatherResponse> {
